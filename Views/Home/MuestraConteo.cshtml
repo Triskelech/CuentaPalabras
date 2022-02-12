@@ -1,0 +1,32 @@
+@{
+    Layout = null;
+    var Conteo = (Dictionary<String, int>)ViewData["conteo"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Conteo de palabras</title>
+</head>
+<body>
+    @if (Conteo.Count() == 0)
+    {
+        <p>No se ingresó ninguna palabra</p>
+    }
+    else{
+        <ul>
+            @foreach (var item in Conteo)
+            {
+                <li>
+                    @item.Key
+                    se repite 
+                    @item.Value
+                    @(item.Value == 1 ? "vez" : "veces")
+                </li>
+            }
+        </ul>
+    }
+</body>
+</html>
